@@ -1,0 +1,14 @@
+.splash {
+  display: flex;
+  display: -webkit-flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+
+  ion-spinner {
+  }
+}

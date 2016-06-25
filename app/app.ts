@@ -3,6 +3,7 @@ import {Platform, ionicBootstrap, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 import {MainPage} from './pages/main/main';
+import {SplashPage} from './pages/splash/splash';
 import {ContentLoading} from './components/content-loading/content-loading';
 import {LoadingModal} from './components/loading-modal/loading-modal';
 import {UserService} from './services/user-service';
@@ -18,7 +19,7 @@ export class MyApp {
   @ViewChild(LoadingModal) loading;
 
   constructor(private platform:Platform, userService: UserService) {
-    this.rootPage = MainPage;
+    this.rootPage = SplashPage;
 
     userService.user().then( (user) => {
       if (user != null) {
