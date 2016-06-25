@@ -1,18 +1,32 @@
-import {Component} from '@angular/core';
-import {Platform, ionicBootstrap} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {Platform, ionicBootstrap, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
-
+import {MainPage} from './pages/main/main';
+import {ContentLoading} from './components/content-loading/content-loading';
+import {LoadingModal} from './components/loading-modal/loading-modal';
+import {UserService} from './services/user-service';
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  templateUrl: './build/app.html',
+  providers: [UserService]
 })
 export class MyApp {
 
   private rootPage:any;
+  @ViewChild(Nav) nav;
+  @ViewChild(LoadingModal) loading;
 
-  constructor(private platform:Platform) {
-    this.rootPage = TabsPage;
+  constructor(private platform:Platform, userService: UserService) {
+    this.rootPage = MainPage;
+
+    userService.user().then( (user) => {
+      if (user != null) {
+        this.rootPage = TabsPage;
+      } else {
+        this.rootPage = MainPage;
+      }
+    });
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
