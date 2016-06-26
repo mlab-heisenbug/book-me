@@ -1,11 +1,23 @@
 <ion-navbar *navbar hideBackButton primary class="show-navbar">
+  <button menuToggle (click)="openMenu()">
+    <ion-icon name='menu'></ion-icon>
+  </button>
   <ion-title>Stash</ion-title>
 </ion-navbar>
 
 <ion-content>
   <ion-list>
+    <button ion-item *ngFor="let key of stashKeys()">
+      <ion-thumbnail item-left>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+      </ion-thumbnail>
+      <h2>{{stashes[key].name}}</h2>
+      <p clear item-right>{{stashes[key].status}}</p>
 
-    <ion-item>
+
+    </button>
+
+    <!-- <ion-item>
       <ion-thumbnail item-left>
         <img src="img/thumbnail-totoro.png">
       </ion-thumbnail>
@@ -39,8 +51,13 @@
       <h2>PS4</h2>
           <p clear item-right>available</p>
 
-    </ion-item>
+    </ion-item> -->
 
 
   </ion-list>
+
 </ion-content>
+
+<button style="z-index: 1000" fab-right fab-bottom fab secondary (click)="addStash()"><ion-icon name="add"></ion-icon></button>
+
+<content-loading *ngIf="loading == true"></content-loading>

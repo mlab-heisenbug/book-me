@@ -1,0 +1,24 @@
+{
+  "stash": {
+    "info@mlab,co,za": {
+      "1234567": {
+        "name": "Device",
+        "description:": "Test Device"
+      },
+      "1234567": {
+        "name": "Another Device",
+        "description:": "Test Device"
+      }
+    },
+    "melvin@appchemy,co,za": {
+      "948309843": {
+        "name": "My Device",
+        "description:": "Test Device"
+      },
+      "4398928": {
+        "name": "The boardroom",
+        "description:": "Test Device"
+      }
+    }
+  }
+}

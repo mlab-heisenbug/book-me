@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, PLATFORM_DIRECTIVES} from '@angular/core';
 import {Platform, ionicBootstrap, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
@@ -37,4 +37,6 @@ export class MyApp {
   }
 }
 
-ionicBootstrap(MyApp)
+ionicBootstrap(MyApp,
+  [{ provide: PLATFORM_DIRECTIVES, useValue: [LoadingModal, ContentLoading], multi: true
+    }])

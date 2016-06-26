@@ -1,42 +1,22 @@
 <ion-navbar *navbar hideBackButton primary class="show-navbar">
+  <button menuToggle (click)="openMenu()">
+    <ion-icon name='menu'></ion-icon>
+  </button>
   <ion-title>Borrowed</ion-title>
 </ion-navbar>
 
 <ion-content>
   <ion-list>
 
-    <ion-item>
+    <button ion-item *ngFor="let key of stashKeys()">
       <ion-thumbnail item-left>
-        <img src="img/thumbnail-totoro.png">
+        <!-- <img src="img/thumbnail-totoro.png"> -->
       </ion-thumbnail>
-      <h2>iPad mini</h2>
-
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="img/thumbnail-rotla.png">
-      </ion-thumbnail>
-      <h2>Nexus 6</h2>
-
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="img/thumbnail-ghostbusters.png">
-      </ion-thumbnail>
-      <h2>Samsung S5</h2>
+      <h2>{{stashes[key].name}}</h2>
+      <p clear item-right>{{stashes[key].status}}</p>
 
 
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="img/thumbnail-batman.png">
-      </ion-thumbnail>
-      <h2>iPhone 6s</h2>
-      <p clear item-right></p>
-    </ion-item>
+    </button>
 
 
   </ion-list>
